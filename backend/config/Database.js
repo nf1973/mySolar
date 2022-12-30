@@ -5,7 +5,7 @@ const MYSQL_USER = process.env.MYSQL_USER;
 const MYSQL_PASSWORD = process.env.MYSQL_PASSWORD;
 
 const db = new Sequelize("mysolar", MYSQL_USER, MYSQL_PASSWORD, {
-  host: "localhost",
+  host: "127.0.0.1",
   dialect: "mysql",
   //logging: false,
 });
