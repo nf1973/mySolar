@@ -1,4 +1,4 @@
-#mySolar
+# mySolar
 
 - Backend application: Gets data from the PVOutput.org API, inserts it into a MySQL database
 - Frontend application: Present Solar data from the MySQL database into the browser
