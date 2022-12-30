@@ -1,4 +1,6 @@
+import { Sequelize } from "sequelize";
 import SolarLogs from "../models/DataModel.js";
+const Op = Sequelize.Op;
 
 export const getSolarLogs = async (req, res) => {
   try {
@@ -13,9 +15,9 @@ export const getSolarLogs = async (req, res) => {
 
 export const getSolarLogsByDate = async (req, res) => {
   try {
-    const response = await SolarLogs.findOne({
+    const response = await SolarLogs.findAll({
       where: {
-        date: req.params.date,
+        date: { [Op.like]: `${req.params.date}%` },
       },
       attributes: { exclude: ["createdAt", "updatedAt"] },
     });

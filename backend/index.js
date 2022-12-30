@@ -71,6 +71,7 @@ const job = schedule.scheduleJob("21 * * * *", async function (req, res) {
     var recordIsNew;
     try {
       let result = await SolarLogs.findAll({
+        logging: false,
         where: {
           date: date,
         },
