@@ -22,7 +22,7 @@ app.listen(3050, () => console.log(Date(), ": API server started"));
 // │    └──────────────────── minute (0 - 59)
 // └───────────────────────── second (0 - 59, OPTIONAL)
 
-const job = schedule.scheduleJob("12 * * * *", async function (req, res) {
+const job = schedule.scheduleJob("21 * * * *", async function (req, res) {
   //Get yesterday's date so that we can avoid to get today's data from PVo, as it will not be completed until the end of the day
   let yesterday = new Date(); //Not really yesterday, see below
   yesterday.setDate(yesterday.getDate() - 1);
@@ -58,14 +58,12 @@ const job = schedule.scheduleJob("12 * * * *", async function (req, res) {
   //Loop through the array (from PVoutput.org), grab the interesting columns
   for (let i = 0; i < row.length; i++) {
     thisRow = row[i].split(",");
-    for (let j = 0; j < thisRow.length; j++) {
-      var date = thisRow[0];
-      var energyGenerated = thisRow[1];
-      var efficiency = thisRow[2];
-      var peakPower = thisRow[5];
-      var peakTime = thisRow[6];
-      var weatherCondition = thisRow[7];
-    }
+    var date = thisRow[0];
+    var energyGenerated = thisRow[1];
+    var efficiency = thisRow[2];
+    var peakPower = thisRow[5];
+    var peakTime = thisRow[6];
+    var weatherCondition = thisRow[7];
 
     //Check if a document for this date already exists in the db, add a new record to the database, **only** if it does not exist already (avoiding duplicates)
     var recordIsNew;
