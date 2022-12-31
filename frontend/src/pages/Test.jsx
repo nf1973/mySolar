@@ -22,7 +22,6 @@ const ListSolarLogs = ({ yearMonth }) => {
         "-" +
         obj.date.substring(6, 8),
     }));
-    console.log(transformedData);
     setSolarLogs(transformedData);
   };
 
