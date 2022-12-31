@@ -6,6 +6,7 @@ export const getSolarLogs = async (req, res) => {
   try {
     const response = await SolarLogs.findAll({
       attributes: { exclude: ["createdAt", "updatedAt"] },
+      order: [["date", "ASC"]],
     });
     res.status(200).json(response);
   } catch (error) {
@@ -19,6 +20,7 @@ export const getSolarLogsByDate = async (req, res) => {
       where: {
         date: { [Op.like]: `${req.params.date}%` },
       },
+      order: [["date", "ASC"]],
       attributes: { exclude: ["createdAt", "updatedAt"] },
     });
     res.status(200).json(response);
