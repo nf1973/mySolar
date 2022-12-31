@@ -31,10 +31,10 @@ const ListSolarLogs = ({ yearMonth }) => {
         <thead>
           <tr>
             <th>Date</th>
-            <th>Energy Generated</th>
-            <th>Efficiency</th>
-            <th>Peak Power</th>
-            <th>Peak Time</th>
+            <th>Energy Generated (Wh)</th>
+            <th>Efficiency (kWh/kWp)</th>
+            <th>Peak Power (Wh)</th>
+            <th>Peak Time (CET)</th>
             <th>Weather Condition</th>
           </tr>
         </thead>
