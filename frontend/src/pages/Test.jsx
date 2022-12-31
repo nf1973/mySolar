@@ -9,7 +9,7 @@ const ListSolarLogs = ({ yearMonth }) => {
   }, [yearMonth]);
 
   const getSolarLogs = async () => {
-    let uri = `https://mysolar-api.sn1316.com/getsolarlogs/${yearMonth}`;
+    let uri = `${process.env.REACT_APP_API_SERVER_URL}/getsolarlogs/${yearMonth}`;
     const response = await axios.get(uri);
     setSolarLogs(response.data);
   };
