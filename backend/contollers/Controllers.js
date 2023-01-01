@@ -28,3 +28,17 @@ export const getSolarLogsByDate = async (req, res) => {
     console.log(error.message);
   }
 };
+
+export const getAvailableMonths = async (req, res) => {
+  try {
+    const response = await SolarLogs.query(
+      "SELECT DISTINCT SUBSTRING(date,1,6) FROM solarlogs;",
+      { type: QueryTypes.SELECT }
+    );
+    res.status(200).json(response);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+//SELECT DISTINCT SUBSTRING(date,1,6) FROM solarlogs;
