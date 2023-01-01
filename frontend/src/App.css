@@ -1,0 +1,149 @@
+.App {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  font-family: "Open Sans", sans-serif;
+  color: #4f9282;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  align-items: center;
+  margin-top: 24px;
+  gap: 10px;
+}
+
+.yearmonthselector {
+  padding-left: 16px;
+  padding-top: 48px;
+}
+
+label {
+  font-weight: 700;
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  color: #325d53;
+  padding: 0.1em 2em 0.1em 0.2em;
+  width: 90%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  align-items: left;
+}
+
+.navigation ul {
+  margin: 0px;
+  padding: 16px;
+}
+
+.navigation ul li {
+  list-style: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: 700;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(90deg, #e4f1ee 0%, #e9f1ef 72.4%, #e9f1ef 100%);
+  width: calc(100vw - 250px);
+  position: relative;
+}
+
+.topbar {
+  display: flex;
+  height: 32px;
+  justify-content: right;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  height: 32px;
+  align-items: center;
+  padding-right: 32px;
+  gap: 24px;
+}
+
+.links img {
+  height: 20px;
+}
+
+.dashboard {
+  margin-bottom: -64px;
+}
+
+.greenbar {
+  background-color: #75b4a5;
+  color: #fff;
+  height: 120px;
+}
+
+.greenbar h1 {
+  font-size: 1.2em;
+  padding-left: 16px;
+}
+
+.content {
+  position: relative;
+
+  top: -80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.row1 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.row2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.card {
+  background: #ffffff;
+  box-shadow: 1px 4px 4px rgba(21, 40, 35, 0.25);
+  border-radius: 4px;
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+  padding: 16px;
+}
+
+.card1 {
+  width: 100%;
+  aspect-ratio: 8 / 3;
+  position: absolote;
+}
+
+.card2 {
+  width: 50%;
+  aspect-ratio: 8 / 6;
+  position: absolote;
+}
+
+.card3 {
+  width: 50%;
+  margin-left: 0;
+  aspect-ratio: 8 / 6;
+  position: absolote;
+}
