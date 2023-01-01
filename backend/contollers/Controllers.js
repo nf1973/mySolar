@@ -31,10 +31,11 @@ export const getSolarLogsByDate = async (req, res) => {
 
 export const getAvailableMonths = async (req, res) => {
   try {
-    const response = await SolarLogs.sequelize.query(
-      "SELECT DISTINCT SUBSTRING(date,1,6) FROM solarlogs;",
-      { type: SolarLogs.sequelize.QueryTypes.SELECT }
-    );
+    const response = await SolarLogs.sequelize
+      .query("SELECT DISTINCT SUBSTRING(date,1,6) FROM solarlogs;", {
+        type: SolarLogs.sequelize.QueryTypes.SELECT,
+      })
+      .map((log) => log.dates);
     res.status(200).json(response);
   } catch (error) {
     console.log(error.message);
