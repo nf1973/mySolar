@@ -30,23 +30,23 @@ const ListSolarLogs = ({ yearMonth }) => {
       <table className="table is-striped is-fullwidth">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Energy Generated (Wh)</th>
-            <th>Efficiency (kWh/kWp)</th>
-            <th>Peak Power (Wh)</th>
-            <th>Peak Time (CET)</th>
-            <th>Weather Condition</th>
+            <th className="has-text-left">Date</th>
+            <th className="has-text-right">Energy Generated (Wh)</th>
+            <th className="has-text-right">Efficiency (kWh/kWp)</th>
+            <th className="has-text-right">Peak Power (Wh)</th>
+            <th className="has-text-right">Peak Time (CET)</th>
+            <th className="has-text-right">Weather Condition</th>
           </tr>
         </thead>
         <tbody>
           {solarLogs.map((log, index) => (
             <tr key={log.id}>
-              <td>{log.displayDate}</td>
-              <td>{log.energyGenerated}</td>
-              <td>{log.efficiency}</td>
-              <td>{log.peakPower}</td>
-              <td>{log.peakTime}</td>
-              <td>{log.weatherCondition}</td>
+              <td className="has-text-laft">{log.displayDate}</td>
+              <td className="has-text-right">{log.energyGenerated}</td>
+              <td className="has-text-right">{log.efficiency}</td>
+              <td className="has-text-right">{log.peakPower}</td>
+              <td className="has-text-right">{log.peakTime}</td>
+              <td className="has-text-right">{log.weatherCondition}</td>
             </tr>
           ))}
         </tbody>

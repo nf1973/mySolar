@@ -6,10 +6,11 @@ function SelectYearMonth({ yearMonth, setYearMonth }) {
   };
 
   return (
-    <div>
+    <div className="yearmonthselector">
       <label form="monthsyears">Choose a Month & Year:</label>
 
       <select name="monthsyears" id="monthsyears" onChange={yearMonthHandler}>
+        <option value="202301">2023-01</option>
         <option value="202212">2022-12</option>
         <option value="202211">2022-11</option>
         <option value="202210">2022-10</option>
