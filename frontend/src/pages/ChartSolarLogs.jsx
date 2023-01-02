@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import MonthlyEnergyProduction from "../components/MonthlyEnergyProduction";
 
 const ListSolarLogs = ({ yearMonth }) => {
   const [solarLogs, setSolarLogs] = useState([]);
@@ -9,7 +10,7 @@ const ListSolarLogs = ({ yearMonth }) => {
   }, [yearMonth]);
 
   const getSolarLogs = async () => {
-    if (!yearMonth == "") {
+    if (!yearMonth === "") {
       //Prevent making API call before yearMonth has even been set
       let uri = `${process.env.REACT_APP_API_SERVER_URL}/getsolarlogs/${yearMonth}`;
       const response = await axios.get(uri);
@@ -31,7 +32,9 @@ const ListSolarLogs = ({ yearMonth }) => {
   return (
     <div>
       <div className="row row1">
-        <div className="card card1">Chart 1 will appear soon!</div>
+        <div className="card card1">
+          <MonthlyEnergyProduction solarLogs={solarLogs} />
+        </div>
       </div>
       <div className="row row1">
         <div className="card card2">Chart 2 will appear soon!</div>
