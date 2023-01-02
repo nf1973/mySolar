@@ -4,7 +4,7 @@ import Main from "./components/Main";
 import React, { useState } from "react";
 
 function App() {
-  const [yearMonth, setYearMonth] = useState("202212");
+  const [yearMonth, setYearMonth] = useState("");
 
   return (
     <div className="App">

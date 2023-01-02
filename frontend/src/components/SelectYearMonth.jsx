@@ -13,6 +13,7 @@ const SelectYearMonth = ({ yearMonth, setYearMonth }) => {
     const response = await axios.get(uri);
     const months = response.data.map(({ YEARMONTH }) => YEARMONTH);
     setAvailableMonths(months);
+    setYearMonth(months[0].substring(0, 6)); //set the initial yearMonth value when the page loads
   };
 
   var months = availableMonths.map((month) => {
