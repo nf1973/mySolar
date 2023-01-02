@@ -5,15 +5,9 @@ const ListSolarLogs = ({ yearMonth }) => {
   const [solarLogs, setSolarLogs] = useState([]);
 
   useEffect(() => {
-    getSolarLogs();
-  }, [yearMonth]);
-
-  const getSolarLogs = async () => {
-    if (!yearMonth === "") {
-      //Prevent making API call before yearMonth has evenbeen set
+    const getLogs = async () => {
       let uri = `${process.env.REACT_APP_API_SERVER_URL}/getsolarlogs/${yearMonth}`;
       const response = await axios.get(uri);
-
       //add a displayDate property to each object in the array
       const transformedData = response.data.map((obj) => ({
         ...obj,
@@ -25,8 +19,12 @@ const ListSolarLogs = ({ yearMonth }) => {
           obj.date.substring(6, 8),
       }));
       setSolarLogs(transformedData);
-    }
-  };
+    };
+
+    getLogs();
+
+    return () => {};
+  }, [yearMonth]);
 
   return (
     <div className="row row1">

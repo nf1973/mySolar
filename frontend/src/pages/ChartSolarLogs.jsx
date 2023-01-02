@@ -2,19 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MonthlyEnergyProduction from "../components/MonthlyEnergyProduction";
 
-const ListSolarLogs = ({ yearMonth }) => {
+const ChartSolarLogs = ({ yearMonth }) => {
   const [solarLogs, setSolarLogs] = useState([]);
 
   useEffect(() => {
-    getSolarLogs();
-  }, [yearMonth]);
-
-  const getSolarLogs = async () => {
-    if (!yearMonth === "") {
-      //Prevent making API call before yearMonth has even been set
+    const getLogs = async () => {
       let uri = `${process.env.REACT_APP_API_SERVER_URL}/getsolarlogs/${yearMonth}`;
       const response = await axios.get(uri);
-
       //add a displayDate property to each object in the array
       const transformedData = response.data.map((obj) => ({
         ...obj,
@@ -26,14 +20,20 @@ const ListSolarLogs = ({ yearMonth }) => {
           obj.date.substring(6, 8),
       }));
       setSolarLogs(transformedData);
-    }
-  };
+    };
+
+    getLogs();
+
+    return () => {};
+  }, [yearMonth]);
 
   return (
     <div>
       <div className="row row1">
         <div className="card card1">
-          <MonthlyEnergyProduction solarLogs={solarLogs} />
+          {solarLogs.length && (
+            <MonthlyEnergyProduction solarLogs={solarLogs} />
+          )}
         </div>
       </div>
       <div className="row row1">
@@ -44,5 +44,4 @@ const ListSolarLogs = ({ yearMonth }) => {
     </div>
   );
 };
-
-export default ListSolarLogs;
+export default ChartSolarLogs;

@@ -59,6 +59,7 @@ export const options = {
 
 const chart = ({ solarLogs }) => {
   console.log(solarLogs);
+
   return (
     <Chart
       chartType="ColumnChart"

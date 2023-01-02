@@ -8,8 +8,14 @@ function Pages({ yearMonth }) {
   return (
     <div className="content">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<ChartSolarLogs yearMonth={yearMonth} />} />
-        <Route path="/data" element={<ListSolarLogs yearMonth={yearMonth} />} />
+        <Route
+          path="/"
+          element={yearMonth.length && <ChartSolarLogs yearMonth={yearMonth} />}
+        />
+        <Route
+          path="/data"
+          element={yearMonth.length && <ListSolarLogs yearMonth={yearMonth} />}
+        />
       </Routes>
     </div>
   );
