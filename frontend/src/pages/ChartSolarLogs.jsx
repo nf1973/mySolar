@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import MonthlyEnergyProduction from "../components/MonthlyEnergyProduction";
+import DailyEnergyProduction from "../components/DailyEnergyProduction";
+import MonthlyWeather from "../components/MonthlyWeather";
 
 const ChartSolarLogs = ({ yearMonth }) => {
   const [solarLogs, setSolarLogs] = useState([]);
@@ -32,14 +33,19 @@ const ChartSolarLogs = ({ yearMonth }) => {
       <div className="row row1">
         <div className="card card1">
           {solarLogs.length && (
-            <MonthlyEnergyProduction solarLogs={solarLogs} />
+            <DailyEnergyProduction
+              solarLogs={solarLogs}
+              yearMonth={yearMonth}
+            />
           )}
         </div>
       </div>
       <div className="row row1">
-        <div className="card card2">Chart 2 will appear soon!</div>
-        <div className="card card3">Chart 3 will appear soon!</div>
-        <div className="card card4">Chart 4 will appear soon!</div>
+        <div className="card card2">
+          {solarLogs.length && (
+            <MonthlyWeather solarLogs={solarLogs} yearMonth={yearMonth} />
+          )}
+        </div>
       </div>
     </div>
   );
