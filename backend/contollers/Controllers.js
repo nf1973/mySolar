@@ -32,7 +32,7 @@ export const getSolarLogsByDate = async (req, res) => {
 export const getAvailableMonths = async (req, res) => {
   try {
     const response = await SolarLogs.sequelize.query(
-      "SELECT DISTINCT SUBSTRING(date,1,6) AS 'YEARMONTH' FROM solarlogs;",
+      "SELECT DISTINCT SUBSTRING(date,1,6) AS 'YEARMONTH' FROM solarlogs ORDER BY YEARMONTH DESC;",
       {
         type: SolarLogs.sequelize.QueryTypes.SELECT,
       }
