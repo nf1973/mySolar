@@ -9,20 +9,23 @@ const ListSolarLogs = ({ yearMonth }) => {
   }, [yearMonth]);
 
   const getSolarLogs = async () => {
-    let uri = `${process.env.REACT_APP_API_SERVER_URL}/getsolarlogs/${yearMonth}`;
-    const response = await axios.get(uri);
+    if (!yearMonth == "") {
+      //Prevent making API call before yearMonth has even been set
+      let uri = `${process.env.REACT_APP_API_SERVER_URL}/getsolarlogs/${yearMonth}`;
+      const response = await axios.get(uri);
 
-    //add a displayDate property to each object in the array
-    const transformedData = response.data.map((obj) => ({
-      ...obj,
-      displayDate:
-        obj.date.substring(0, 4) +
-        "-" +
-        obj.date.substring(4, 6) +
-        "-" +
-        obj.date.substring(6, 8),
-    }));
-    setSolarLogs(transformedData);
+      //add a displayDate property to each object in the array
+      const transformedData = response.data.map((obj) => ({
+        ...obj,
+        displayDate:
+          obj.date.substring(0, 4) +
+          "-" +
+          obj.date.substring(4, 6) +
+          "-" +
+          obj.date.substring(6, 8),
+      }));
+      setSolarLogs(transformedData);
+    }
   };
 
   return (
