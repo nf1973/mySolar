@@ -9,7 +9,7 @@ const ListSolarLogs = ({ yearMonth }) => {
   }, [yearMonth]);
 
   const getSolarLogs = async () => {
-    if (!yearMonth == "") {
+    if (!yearMonth === "") {
       //Prevent making API call before yearMonth has evenbeen set
       let uri = `${process.env.REACT_APP_API_SERVER_URL}/getsolarlogs/${yearMonth}`;
       const response = await axios.get(uri);
