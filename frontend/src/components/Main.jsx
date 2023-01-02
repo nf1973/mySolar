@@ -1,18 +1,16 @@
-import Dashboard from "./Dashboard";
-import github from "../images/github.svg";
-import mail from "../images/mail.svg";
-//import React, { useState } from "react";
+import Pages from "../pages/Pages";
+import TopBar from "./TopBar";
 
 function Main({ yearMonth }) {
   return (
     <main className="right">
-      <div className="topbar">
-        <div className="links">
-          <img src={github} alt="github icon" />
-          <img src={mail} alt="mail icon" />
+      <TopBar />
+      <div className="dashboard">
+        <div className="greenbar">
+          <h1>Dashboard</h1>
         </div>
+        <Pages yearMonth={yearMonth} />
       </div>
-      <Dashboard yearMonth={yearMonth} />
     </main>
   );
 }

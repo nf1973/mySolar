@@ -1,6 +1,6 @@
 import Logo from "../images/mysolar.png";
 import SelectYearMonth from "./SelectYearMonth";
-//import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Side({ yearMonth, setYearMonth }) {
   return (
@@ -9,8 +9,12 @@ function Side({ yearMonth, setYearMonth }) {
       <div className="navigation">
         <SelectYearMonth yearMonth={yearMonth} setYearMonth={setYearMonth} />
         <ul>
-          <li>Dashboard</li>
-          <li>Data</li>
+          <Link to={`/`}>
+            <li>Dashboard</li>
+          </Link>
+          <Link to={`/data`}>
+            <li>Data</li>
+          </Link>
         </ul>
       </div>
     </aside>

@@ -10,7 +10,7 @@ const ListSolarLogs = ({ yearMonth }) => {
 
   const getSolarLogs = async () => {
     if (!yearMonth == "") {
-      //Prevent making API call before yearMonth has even been set
+      //Prevent making API call before yearMonth has evenbeen set
       let uri = `${process.env.REACT_APP_API_SERVER_URL}/getsolarlogs/${yearMonth}`;
       const response = await axios.get(uri);
 
@@ -29,31 +29,35 @@ const ListSolarLogs = ({ yearMonth }) => {
   };
 
   return (
-    <div className="columns mt-5 is-centered">
-      <table className="table is-striped is-fullwidth">
-        <thead>
-          <tr>
-            <th className="has-text-left">Date</th>
-            <th className="has-text-right">Energy Generated (Wh)</th>
-            <th className="has-text-right">Efficiency (kWh/kWp)</th>
-            <th className="has-text-right">Peak Power (Wh)</th>
-            <th className="has-text-right">Peak Time (CET)</th>
-            <th className="has-text-right">Weather Condition</th>
-          </tr>
-        </thead>
-        <tbody>
-          {solarLogs.map((log, index) => (
-            <tr key={log.id}>
-              <td className="has-text-laft">{log.displayDate}</td>
-              <td className="has-text-right">{log.energyGenerated}</td>
-              <td className="has-text-right">{log.efficiency}</td>
-              <td className="has-text-right">{log.peakPower}</td>
-              <td className="has-text-right">{log.peakTime}</td>
-              <td className="has-text-right">{log.weatherCondition}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="row row1">
+      <div className="card card1">
+        <div className="columns mt-5 is-centered">
+          <table className="table is-striped is-fullwidth">
+            <thead>
+              <tr>
+                <th className="has-text-left">Date</th>
+                <th className="has-text-right">Energy Generated (Wh)</th>
+                <th className="has-text-right">Efficiency (kWh/kWp)</th>
+                <th className="has-text-right">Peak Power (Wh)</th>
+                <th className="has-text-right">Peak Time (CET)</th>
+                <th className="has-text-right">Weather Condition</th>
+              </tr>
+            </thead>
+            <tbody>
+              {solarLogs.map((log, index) => (
+                <tr key={log.id}>
+                  <td className="has-text-laft">{log.displayDate}</td>
+                  <td className="has-text-right">{log.energyGenerated}</td>
+                  <td className="has-text-right">{log.efficiency}</td>
+                  <td className="has-text-right">{log.peakPower}</td>
+                  <td className="has-text-right">{log.peakTime}</td>
+                  <td className="has-text-right">{log.weatherCondition}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

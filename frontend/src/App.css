@@ -55,6 +55,12 @@ select {
   padding-top: 12px;
   padding-bottom: 12px;
   font-weight: 700;
+  color: #4f9282;
+}
+
+.navigation ul li:hover,
+.navigation ul li:active {
+  text-decoration: underline;
 }
 
 .right {
@@ -77,6 +83,7 @@ select {
   flex-direction: row;
   height: 32px;
   align-items: center;
+  padding-top: px;
   padding-right: 32px;
   gap: 24px;
 }
@@ -97,6 +104,7 @@ select {
 
 .greenbar h1 {
   font-size: 1.2em;
+  padding-top: 16px;
   padding-left: 16px;
 }
 
@@ -136,13 +144,20 @@ select {
 }
 
 .card2 {
-  width: 50%;
+  flex-grow: 1;
   aspect-ratio: 8 / 6;
   position: absolote;
 }
 
 .card3 {
-  width: 50%;
+  flex-grow: 2;
+  margin-left: 0;
+  aspect-ratio: 8 / 6;
+  position: absolote;
+}
+
+.card4 {
+  flex-grow: 2;
   margin-left: 0;
   aspect-ratio: 8 / 6;
   position: absolote;
