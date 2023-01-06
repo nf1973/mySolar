@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import ListSolarLogs from "./ListSolarLogs";
-import ListSolarLogsOld from "./ListSolarLogsOld";
 import ChartSolarLogs from "./ChartSolarLogs";
 
 function Pages({ yearMonth }) {
@@ -19,9 +18,7 @@ function Pages({ yearMonth }) {
         />
         <Route
           path="/dataold"
-          element={
-            yearMonth.length && <ListSolarLogsOld yearMonth={yearMonth} />
-          }
+          element={yearMonth.length && <ListSolarLogs yearMonth={yearMonth} />}
         />
       </Routes>
     </div>

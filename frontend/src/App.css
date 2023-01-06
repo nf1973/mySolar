@@ -163,3 +163,16 @@ select {
   aspect-ratio: 8 / 6;
   position: absolote;
 }
+
+tr:nth-child(even) {
+  background-color: #e9f1ef !important;
+}
+
+thead {
+  font-size: 0.8rem;
+}
+
+td {
+  font-size: 0.8rem;
+  color: #325d53;
+}
