@@ -14,7 +14,7 @@ const chart = ({ solarLogs, yearMonth }) => {
     height: "100%",
     legend: { position: "right" },
     isStacked: true,
-    colors: ["#afd4cc", "#75B4A5", "#4F9282", "#325D53", "#152823"],
+    colors: ["#afd4cc", "#75B4A5", "#4F9282", "#40776A", "#325D53"],
     chartArea: {
       left: "5%",
       right: "5%",

@@ -5,6 +5,7 @@ import MonthlyWeather from "../components/MonthlyWeather";
 
 const ChartSolarLogs = ({ yearMonth }) => {
   const [solarLogs, setSolarLogs] = useState([]);
+  const [totalEnergy, setTotalEnergy] = useState("");
 
   useEffect(() => {
     const getLogs = async () => {
@@ -21,6 +22,13 @@ const ChartSolarLogs = ({ yearMonth }) => {
           obj.date.substring(6, 8),
       }));
       setSolarLogs(transformedData);
+
+      //Calculate the total energy production
+      const totalEnergyGenerated = transformedData.reduce(
+        (total, transformedData) => transformedData.energyGenerated + total,
+        0
+      );
+      setTotalEnergy(Math.floor(totalEnergyGenerated / 1000));
     };
 
     getLogs();
@@ -30,6 +38,12 @@ const ChartSolarLogs = ({ yearMonth }) => {
 
   return (
     <div>
+      <div className="row row0">
+        <div className="card card0">
+          Total Energy Generated in {displayYearMonth(yearMonth)}: {totalEnergy}{" "}
+          kWh
+        </div>
+      </div>
       <div className="row row1">
         <div className="card card1">
           {solarLogs.length && (
@@ -51,3 +65,7 @@ const ChartSolarLogs = ({ yearMonth }) => {
   );
 };
 export default ChartSolarLogs;
+
+function displayYearMonth(yearMonth) {
+  return yearMonth.substring(0, 4) + "-" + yearMonth.substring(4, 6);
+}
