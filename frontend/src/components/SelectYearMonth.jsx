@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+function getMonthName(monthNumber) {
+  const date = new Date();
+  date.setMonth(monthNumber - 1);
+  return date.toLocaleString("en-US", { month: "long" });
+}
+
 const SelectYearMonth = ({ yearMonth, setYearMonth }) => {
   const [availableMonths, setAvailableMonths] = useState([]);
 
@@ -19,7 +25,7 @@ const SelectYearMonth = ({ yearMonth, setYearMonth }) => {
   var months = availableMonths.map((month) => {
     return (
       <option key={month} value={month}>
-        {month.substring(0, 4) + "-" + month.substring(4, 6)}
+        {month.substring(0, 4) + " " + getMonthName(month.substring(4, 6))}
       </option>
     );
   });

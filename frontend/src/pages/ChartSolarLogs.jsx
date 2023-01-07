@@ -3,6 +3,19 @@ import axios from "axios";
 import DailyEnergyProduction from "../components/DailyEnergyProduction";
 import MonthlyWeather from "../components/MonthlyWeather";
 
+function getMonthName(monthNumber) {
+  const date = new Date();
+  date.setMonth(monthNumber - 1);
+  return date.toLocaleString("en-US", { month: "long" });
+}
+
+function displayYearMonth(yearMonth) {
+  //return yearMonth.substring(0, 4) + "-" + yearMonth.substring(4, 6);
+  return (
+    getMonthName(yearMonth.substring(4, 6)) + " " + yearMonth.substring(0, 4)
+  );
+}
+
 const ChartSolarLogs = ({ yearMonth }) => {
   const [solarLogs, setSolarLogs] = useState([]);
   const [totalEnergy, setTotalEnergy] = useState("");
@@ -65,7 +78,3 @@ const ChartSolarLogs = ({ yearMonth }) => {
   );
 };
 export default ChartSolarLogs;
-
-function displayYearMonth(yearMonth) {
-  return yearMonth.substring(0, 4) + "-" + yearMonth.substring(4, 6);
-}

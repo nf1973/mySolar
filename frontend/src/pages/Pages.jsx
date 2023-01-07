@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import ListSolarLogs from "./ListSolarLogs";
+import ListSolarLogsMonthly from "./ListSolarLogsMonthly";
+import ListSolarLogsYearly from "./ListSolarLogsYearly";
 import ChartSolarLogs from "./ChartSolarLogs";
 
 function Pages({ yearMonth }) {
@@ -13,12 +15,16 @@ function Pages({ yearMonth }) {
           element={yearMonth.length && <ChartSolarLogs yearMonth={yearMonth} />}
         />
         <Route
-          path="/data"
+          path="/dailydata"
           element={yearMonth.length && <ListSolarLogs yearMonth={yearMonth} />}
         />
         <Route
-          path="/dataold"
-          element={yearMonth.length && <ListSolarLogs yearMonth={yearMonth} />}
+          path="/monthlydata"
+          element={yearMonth.length && <ListSolarLogsMonthly />}
+        />
+        <Route
+          path="/yearlydata"
+          element={yearMonth.length && <ListSolarLogsYearly />}
         />
       </Routes>
     </div>

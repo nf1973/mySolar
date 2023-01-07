@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+function getMonthName(monthNumber) {
+  const date = new Date();
+  date.setMonth(monthNumber - 1);
+  return date.toLocaleString("en-US", { month: "long" });
+}
+
 const ListSolarLogs = ({ yearMonth }) => {
   const [solarLogs, setSolarLogs] = useState([]);
 
@@ -44,7 +50,10 @@ const ListSolarLogs = ({ yearMonth }) => {
             <tbody>
               {solarLogs.map((log, index) => (
                 <tr key={log.id}>
-                  <td className="has-text-laft">{log.displayDate}</td>
+                  <td className="has-text-left">
+                    {" "}
+                    {log.day + " " + getMonthName(log.month) + " " + log.year}
+                  </td>
                   <td className="has-text-right">{log.energyGenerated}</td>
                   <td className="has-text-right">{log.efficiency}</td>
                   <td className="has-text-right">{log.peakPower}</td>

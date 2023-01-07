@@ -9,11 +9,25 @@ function Side({ yearMonth, setYearMonth }) {
       <div className="navigation">
         <SelectYearMonth yearMonth={yearMonth} setYearMonth={setYearMonth} />
         <ul>
+          <li className="navigation-subhead">Dashboard</li>
           <Link to={`/`}>
-            <li>Dashboard</li>
+            <li className="navigation-page">Daily Charts</li>
           </Link>
-          <Link to={`/data`}>
-            <li>Data</li>
+          {/* <Link to={`/monthly`}>
+            <li className="navigation-page">Monthly Charts</li>
+          </Link>
+          <Link to={`/yearly`}>
+            <li className="navigation-page">Yearly Charts</li>
+          </Link> */}
+          <li className="navigation-subhead">Data</li>
+          <Link to={`/dailydata`}>
+            <li className="navigation-page">Daily Values</li>
+          </Link>
+          <Link to={`/monthlydata`}>
+            <li className="navigation-page">Monthly Values</li>
+          </Link>
+          <Link to={`/yearlydata`}>
+            <li className="navigation-page">Yearly Values</li>
           </Link>
         </ul>
       </div>
