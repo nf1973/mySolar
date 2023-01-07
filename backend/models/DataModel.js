@@ -7,6 +7,9 @@ const SolarLogs = db.define(
   "solarlogs",
   {
     date: DataTypes.STRING,
+    year: DataTypes.INTEGER,
+    month: DataTypes.INTEGER,
+    day: DataTypes.INTEGER,
     energyGenerated: DataTypes.INTEGER,
     efficiency: DataTypes.DECIMAL(10, 3),
     peakPower: DataTypes.INTEGER,

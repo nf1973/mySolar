@@ -42,3 +42,31 @@ export const getAvailableMonths = async (req, res) => {
     console.log(error.message);
   }
 };
+
+export const getMonthlyEnergy = async (req, res) => {
+  try {
+    const response = await SolarLogs.sequelize.query(
+      "SELECT year, month, SUM(energyGenerated) AS energyGenerated FROM mysolar.solarlogs GROUP BY year, month ORDER BY year, month;",
+      {
+        type: SolarLogs.sequelize.QueryTypes.SELECT,
+      }
+    );
+    res.status(200).json(response);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const getYearlyEnergy = async (req, res) => {
+  try {
+    const response = await SolarLogs.sequelize.query(
+      "SELECT year, SUM(energyGenerated) AS energyGenerated FROM mysolar.solarlogs GROUP BY year ORDER BY year;",
+      {
+        type: SolarLogs.sequelize.QueryTypes.SELECT,
+      }
+    );
+    res.status(200).json(response);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
