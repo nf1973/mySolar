@@ -4,6 +4,8 @@ import ListSolarLogs from "./ListSolarLogs";
 import ListSolarLogsMonthly from "./ListSolarLogsMonthly";
 import ListSolarLogsYearly from "./ListSolarLogsYearly";
 import ChartSolarLogs from "./ChartSolarLogs";
+import ChartSolarLogsMonthly from "./ChartSolarLogsMonthly";
+import ChartSolarLogsYearly from "./ChartSolarLogsYearly";
 
 function Pages({ yearMonth }) {
   const location = useLocation();
@@ -13,6 +15,18 @@ function Pages({ yearMonth }) {
         <Route
           path="/"
           element={yearMonth.length && <ChartSolarLogs yearMonth={yearMonth} />}
+        />
+        <Route
+          path="/monthly"
+          element={
+            yearMonth.length && (
+              <ChartSolarLogsMonthly year={yearMonth.substring(0, 4)} />
+            )
+          }
+        />
+        <Route
+          path="/yearly"
+          element={yearMonth.length && <ChartSolarLogsYearly />}
         />
         <Route
           path="/dailydata"

@@ -13,12 +13,12 @@ function Side({ yearMonth, setYearMonth }) {
           <Link to={`/`}>
             <li className="navigation-page">Daily Charts</li>
           </Link>
-          {/* <Link to={`/monthly`}>
+          <Link to={`/monthly`}>
             <li className="navigation-page">Monthly Charts</li>
           </Link>
           <Link to={`/yearly`}>
             <li className="navigation-page">Yearly Charts</li>
-          </Link> */}
+          </Link>
           <li className="navigation-subhead">Data</li>
           <Link to={`/dailydata`}>
             <li className="navigation-page">Daily Values</li>
